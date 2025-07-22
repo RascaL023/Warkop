@@ -1,0 +1,201 @@
+@keyframes highlighting {
+  0% {
+    text-shadow: 0 0 0.1em;
+  }
+  50% {
+    text-shadow: 0 0 0.3em;
+  }
+  75% {
+    text-shadow: 0 0 0.5em;
+  }
+  100% {
+    text-shadow: 0 0 1em;
+  }
+}
+@keyframes sliding {
+  from {
+    text-shadow: 0 0 0px white;
+    letter-spacing: 10px;
+    opacity: 0.5;
+  }
+  to {
+    text-shadow: 0 0 5px white;
+    letter-spacing: 0;
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#index {
+  background-color: white;
+  background-color: rgb(46, 24, 24);
+  height: 200vh;
+}
+#index header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(24, 10, 10, 0.781);
+  padding: 1.3em 2%;
+  border-bottom: 0.1px solid whitesmoke;
+  box-shadow: 0 0 0.7em white;
+  z-index: 10;
+  transition: ease-in-out 0.5s;
+}
+#index header > h2 {
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
+}
+#index header > h2 > span {
+  color: rgb(235, 215, 43);
+}
+#index header > #navBtn {
+  display: none;
+  color: white;
+  scale: 1.4;
+  font-weight: bold;
+  cursor: pointer;
+}
+#index header > .navigasi {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  width: 40%;
+}
+#index header > .navigasi li {
+  position: relative;
+}
+#index header > .navigasi li a {
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(197, 197, 197);
+  padding: 0.3em 3px;
+  transition: ease-in-out 0.3s;
+}
+#index header > .navigasi li a:hover {
+  color: white;
+  text-shadow: 0 0 0.5em;
+}
+#index header > .navigasi li a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -5%;
+  border-bottom: 1.5px solid whitesmoke;
+  width: 110%;
+  transform-origin: left;
+  margin-top: 5rem;
+  transform: scaleX(0);
+  transition: 0.1s ease-in-out;
+}
+#index header > .navigasi li a:hover::after {
+  transform: scaleX(1);
+}
+#index header > .navigasi li a.active {
+  color: white;
+  animation: highlighting 1.5s ease-in-out infinite alternate;
+}
+#index header > .navigasi li a.active::after {
+  transform: scaleX(1);
+  box-shadow: 0 0 5px 1px;
+}
+#index .hero {
+  background-image: url(/Assets/hero.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#index .hero > .hero-content {
+  z-index: 2;
+  max-width: 40%;
+  color: white;
+  margin-left: 15%;
+  font-size: 1.1em;
+}
+#index .hero > .hero-content > h1 {
+  text-shadow: 0 0 5px white;
+  margin-bottom: 3%;
+  text-indent: 5%;
+  animation: sliding 0.8s ease-in-out;
+  transform-origin: 5px;
+}
+#index .hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.719);
+  z-index: 0;
+}
+#index .hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.774) 12%, rgba(22, 22, 22, 0.11) 50%, rgba(10, 6, 6, 0.11) 100%);
+}
+
+@media (max-width: 768px) {
+  #index {
+    font-size: 80%;
+  }
+  #index header .navigasi {
+    display: block;
+    position: absolute;
+    top: 102%;
+    width: 50%;
+    right: -100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.856);
+    border-radius: 3px;
+    transition: 0.3s ease-in;
+  }
+  #index header .navigasi li {
+    border-bottom: 1px solid black;
+    height: 4em;
+  }
+  #index header .navigasi li a {
+    display: flex;
+    align-items: center;
+    padding: 0 1em;
+    width: 100%;
+    height: 100%;
+  }
+  #index header .navigasi.active {
+    right: 0;
+  }
+  #index header .navigasi.active li {
+    border-color: white;
+  }
+  #index header .navigasi.active li a:hover {
+    background-color: black;
+  }
+  #index header .navigasi.active li a::after {
+    border-style: none;
+  }
+  #index header #navBtn {
+    padding: 5px 10px;
+    display: inline;
+    transition: ease-in-out 0.3s;
+  }
+  #index .hero {
+    background-image: url(https://images.wallpaperscraft.com/image/single/coffee_book_glasses_140830_300x300.jpg);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

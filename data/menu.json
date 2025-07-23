@@ -6,5 +6,9 @@
     {
         "menu": "Indomie Telur",
         "harga": 6500
+    },
+    {
+        "menu": "Surya",
+        "harga": 2500
     }
 ]
